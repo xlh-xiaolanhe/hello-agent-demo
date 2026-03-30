@@ -13,7 +13,7 @@ class MyLLM(HelloAgentsLLM):
         provider: Optional[str] = "auto",
         **kwargs 
     ):
-        print("api_key" + api_key)
+    
         # 检查provider是否为我们想处理的'modelscope'
         if provider == "modelscope":
             print("正在使用自定义的 ModelScope Provider")
@@ -21,7 +21,7 @@ class MyLLM(HelloAgentsLLM):
             
             # 解析 ModelScope 的凭证
             self.api_key = api_key or os.getenv("MODELSCOPE_API_KEY")
-            self.base_url = base_url or "https://api-inference.modelscope.cn/v1/"
+            self.base_url = base_url or "https://api.deepseek.com"
             
             # 验证凭证是否存在
             if not self.api_key:
