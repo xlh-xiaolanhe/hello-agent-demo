@@ -40,7 +40,7 @@ def test_with_simple_agent():
     # 创建包含计算器的注册表
     registry = create_calculator_register()
 
-    print("🤖 与SimpleAgent集成测试:")
+    print("[AGENT] 与SimpleAgent集成测试:")
 
     # 模拟SimpleAgent使用工具的场景
     user_question = "请帮我计算 sqrt(16) + 2 * 3"
@@ -56,7 +56,7 @@ def test_with_simple_agent():
         {"role": "user", "content": f"计算结果是 {calc_result}，请用自然语言回答用户的问题：{user_question}"}
     ]
 
-    print("\n🎯 SimpleAgent的回答:")
+    print("\n[RESULT] SimpleAgent的回答:")
     response = llm.think(final_messages)
     for chunk in response:
         print(chunk, end="", flush=True)
