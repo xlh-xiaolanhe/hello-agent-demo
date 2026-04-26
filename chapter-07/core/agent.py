@@ -1,10 +1,10 @@
+"""Agent基类"""
 
 from abc import ABC, abstractmethod
 from typing import Optional
-from message import Message
-from llm import HelloAgentsLLM
-from config import Config
-
+from .message import Message
+from .llm import HelloAgentsLLM
+from .config import Config
 
 class Agent(ABC):
     """Agent基类"""
@@ -41,3 +41,6 @@ class Agent(ABC):
     
     def __str__(self) -> str:
         return f"Agent(name={self.name}, provider={self.llm.provider})"
+    
+    def __repr__(self) -> str:
+        return self.__str__()
