@@ -13,6 +13,10 @@ from dotenv import load_dotenv
 load_dotenv()
 import json
 import os
+# 禁用代理以解决SSL连接问题
+os.environ['NO_PROXY'] = '*'
+os.environ['HTTP_PROXY'] = ''
+os.environ['HTTPS_PROXY'] = ''
 from datetime import datetime
 from typing import Dict, Any, Optional, List, Tuple
 import time
@@ -337,7 +341,7 @@ def create_gradio_ui():
         return result
 
     # 创建Gradio界面
-    with gr.Blocks(title="智能文档问答助手", theme=gr.themes.Soft()) as demo:
+    with gr.Blocks(title="智能文档问答助手") as demo:
         gr.Markdown("""
         # 📚 智能文档问答助手
 
@@ -375,8 +379,7 @@ def create_gradio_ui():
             gr.Markdown("### 向文档提问或回顾学习历程")
             chatbot = gr.Chatbot(
                 label="对话历史",
-                height=400,
-                bubble_full_width=False
+                height=400
             )
             with gr.Row():
                 msg_input = gr.Textbox(
@@ -441,7 +444,8 @@ def main():
         server_name="0.0.0.0",
         server_port=7860,
         share=False,
-        show_error=True
+        show_error=True,
+        theme=gr.themes.Soft()
     )
 
 

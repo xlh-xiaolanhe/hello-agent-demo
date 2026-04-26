@@ -7,7 +7,12 @@
       "Bash(python test_zai_api.py)",
       "Bash(python test_network.py)",
       "Bash(python test_api_direct.py)",
-      "Bash(python test_codemodels.py)"
+      "Bash(python test_codemodels.py)",
+      "Bash(python \"chapter-07/memory/Q&A_Assistant.py\")",
+      "Bash(pip list:*)",
+      "Bash(pip show:*)",
+      "Bash(python -c ':*)",
+      "Bash(.venv/Scripts/pip list:*)"
     ]
   }
 }
